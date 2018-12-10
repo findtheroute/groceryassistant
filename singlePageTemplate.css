@@ -1,23 +1,20 @@
 @charset "UTF-8";
 /* Body */
 body {
-	font-family: source-sans-pro;
-	background-color: #f2f2f2;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	font-style: normal;
-	font-weight: 200;
+    font-family: source-sans-pro;
+    background-color: #f2f2f2;
+    font-style: normal;
+    font-weight: 200;
+    padding-right: 0px;
 }
 /* Container */
 .container {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	height: 100%;
-	background-color: #FFFFFF;
-	margin-top: 0px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    background-color: #FFFFFF;
+    margin-top: 0px;
 }
 /* Navigation */
 header {
@@ -35,18 +32,25 @@ header {
 	margin-left: 0px;
 }
 .store {
-	background-color: #52bad5;
-	border-bottom: 1px solid #2C9AB7;
-	color: #fff;
-	font-weight: bold;
-	width: 70%;
-	float: none;
-	margin-top: 18px;
-	margin-left: 12%;
-	letter-spacing: 4px;
-	padding-top: 2px;
-	padding-left: 5%;
+    background-color: #52bad5;
+    border-bottom: 1px solid #2C9AB7;
+    color: #fff;
+    font-weight: bold;
+    width: 70%;
+   /* float: none;*/
+    margin-top: 18px;
+    margin-left: 12%;
+    letter-spacing: 4px;
+    padding-top: 2px;
+    padding-left: 3%;
+    padding-bottom: 3%;
+	/*text-align: center;*/
 }
+
+.store:hover {
+	cursor: pointer;
+}
+
 .logo {
 	color: #fff;
 	font-weight: bold;
@@ -57,6 +61,30 @@ header {
 	margin-left: 25px;
 	letter-spacing: 4px;
 }
+
+table{
+    background-color: #52bad5;
+    border: thin double #FFFFFF;
+    color: #fff;
+    font-weight: bold;
+    width: 70%;
+    /* [disabled]margin-top: 18px; */
+    margin-left: 12%;
+    letter-spacing: 4px;
+    display: block;
+}
+
+thead{
+    margin: 1%;
+    padding: 1%;
+    border: thin double #FFFFFF;
+}
+
+tbody{
+	height:360px;
+	overflow-y: auto;
+}
+
 nav {
 	float: right;
 	width: 50%;
@@ -67,6 +95,11 @@ header nav ul {
 	list-style: none;
 	float: right;
 }
+
+.center{
+	text-align:center;
+}
+
 nav ul li {
 	float: left;
 	color: #FFFFFF;
@@ -124,6 +157,11 @@ ul li:hover a {
 	padding-right: 20px;
 	color: #A3A3A3;
 }
+#scrollbar{
+    height: 360px;
+    overflow-y: auto;
+}
+
 .about {
 	padding-left: 25px;
 	padding-right: 25px;
@@ -219,10 +257,12 @@ footer .footer_column p {
 	background-color: #FFFFFF;
 }
 .cards {
-	width: 100%;
-	height: auto;
-	max-width: 400px;
-	max-height: 200px;
+    width: 30%;
+    text-align: center;
+    display: inline-block;
+    border-style: ridge;
+    margin: 1%;
+    padding-bottom: 2%;
 }
 footer .footer_column p {
 	padding-left: 30px;
@@ -234,28 +274,27 @@ footer .footer_column p {
 	margin-right: 20px;
 }
 .button {
-    width: 150px;
     margin-top: 40px;
     margin-right: auto;
     margin-bottom: auto;
-    margin-left: auto;
-    padding-top: 20px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    padding-left: 10px;
+    padding-top: 15px;
+    padding-right: 2%;
+    padding-bottom: 15px;
+    padding-left: 2%;
     text-align: center;
     vertical-align: middle;
-    border-radius: 0px;
+    border-radius: 10px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
     border: 3px solid #FFFFFF;
-    color: #FFFFFF;
+    color: #25849D;
     transition: all 0.3s linear;
+    font-size: 15px;
 }
 .button:hover {
 	background-color: #FEFEFE;
-	color: #C4C4C4;
+	color: #25849D;
 	cursor: pointer;
 }
 .copyright {
