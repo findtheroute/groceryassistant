@@ -11,48 +11,42 @@
 <script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-	var cart = [];
-	$(document).ready(function(){
-		$(".item").click(function(){
-			cart.push($(this).siblings('p').text());
-			console.log($(this).siblings('p').text());
-		});
-	});
 	
 	$(".card").ready(function(){
 	$("#searchText").on("keyup", function() {
     var g = $(this).val().toLowerCase();
     $(".cards").children("p").each(function() {
         var s = $(this).text().toLowerCase();
-		console.log(s+" "+g);
 		$(this).parent()[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
 	});
 	});
-			
-	function showGroceryList(){
-		localStorage.setItem("cartKey",JSON.stringify(cart))
-		var cartItems = JSON.parse(localStorage.getItem("cartKey"));
-		console.log(cartItems);
-	}
+	});		
 
 	$("#scrollbar").ready(function(){
 	var JSONitems = JSON.parse('["Eggs","Milk","Juice","cereal"]');
 	var item;
 	for (item in JSONitems){
-	var txt1 = " <div class=\"cards\"><p>"+JSONitems[item]+" </p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
+	var txt1 = " <div class=\"cards\"><p>"+JSONitems[item]+"</p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
 	$("#scrollbar").append(txt1);
 	}
 	});
-
-});
+	
+		var cart = [];
+	$(".item").ready(function(){
+		$(".item").click(function(){
+			cart.push($(this).siblings('p').text());
+			$(this).prop("disabled",true);
+			console.log($(this).siblings('p').text());
+		});
+	});
+		function showGroceryList(){
+		localStorage.setItem("cartKey",JSON.stringify(cart))
+		var cartItems = JSON.parse(localStorage.getItem("cartKey"));
+		console.log(cartItems);
+	}
 	
 </script>
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 </head>
 <body>
 <!-- Main Container -->
@@ -76,61 +70,7 @@
 	  	<p>Eggs</p>
 		<button type="button" class="item">Add to List</button>
 	  </div>
-	  
-	   <div class="cards">
-	  	<p>Milk</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	   <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-		
-		<div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>
-	  
-	  <div class="cards">
-	  	<p>Juice</p>
-		<button type="button" class="item">Add to List</button>
-	  </div>   -->
+	  -->
 		
 	</div>
 	  <p class="center">
@@ -141,13 +81,7 @@
 	  </p>
 	  
   </section>
-	
 
-  <!-- About Section -->
-  <!-- Stats Gallery Section -->
-  <!-- Parallax Section -->
-  <!-- More Info Section -->
-  <!-- Footer Section -->
   <!-- Copyrights Section -->
   <div class="copyright"></div>
 </div>
