@@ -16,10 +16,12 @@
 	$("#searchStoreByZip").submit(function(event){
 		//Stop form from submitting normally
 		event.preventDefault();
-		//Get some values from element on the page
-		var $form = $(this), zipEntry = $form.find("input[name='zip']").val(), url = $form.attr("action");
 		// Send the data using post
-  		$.post( url, { zip: zipEntry } );
+		$.ajax({
+			type: 'POST',
+        		url: 'screen2.html',
+        		data: { zip: $('#zip').val() },
+    		});
 	});
 </script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
