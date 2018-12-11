@@ -7,8 +7,20 @@
 <title>Light Theme</title>
 <link href="singlePageTemplate.css" rel="stylesheet" type="text/css">
 <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
-<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script> var __adobewebfontsappname__="dreamweaver" </script>
 <script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	//Attach a submit handler to the form "searchStoreByZip"
+	$("#searchStoreByZip").submit(function(event){
+		//Stop form from submitting normally
+		event.preventDefault();
+		//Get some values from element on the page
+		var $form = $(this), zipEntry = $form.find("input[name='zip']").val(), url = $form.attr("action");
+		// Send the data using post
+  		$.post( url, { zip: zipEntry } );
+	});
+</script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -25,11 +37,12 @@
   </header>
   <!-- Hero Section -->
   <section class="hero" id="hero">
-		<form action="screen2.html">
+		<form action="screen2.html" id="searchStoreByZip">
 			<h2 class="hero_header">
-				Enter ZIP: <input type="text" name="ZIP"><br><br>
+				Enter ZIP: <input type="text" name="zip"><br><br>
 				<!--<input type="submit" value="Submit" onClick="window.location.href='screen2.html'">-->
-				<button class="button" type="submit" value="Submit" onClick="window.location.href='screen2.html'">Go</button>
+				<!--<button class="button" type="submit" value="Submit" onClick="window.location.href='screen2.html'">Go</button>-->
+				<button class="button" type="submit" value="Submit" onClick="showStoreList()">Go</button>
 			</h2>
     	</form>	
   </section>
