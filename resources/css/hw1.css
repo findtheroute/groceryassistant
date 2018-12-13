@@ -1,0 +1,314 @@
+body {
+	font-weight: 400;
+	font-size: 16px;
+	line-height:1.7;
+	color:#828282;
+	position: relative;
+	overflow-y: scroll;
+	width: 100%;
+	height:800px;
+	background: #e1d0f2;
+}
+
+
+
+.main{
+	background: url("../images/mian.jpg") no-repeat ;
+	min-height: 450px;
+  padding-top: 20px;
+  width:100%;
+  height:90%;
+  margin:0;
+
+}
+/*half-half*/
+.container1 {
+  display: table;
+  width: 100%;
+}
+
+h1{
+	color:white;
+	font size: 18px;
+	margin-left:35px;
+	text-align: center;
+}
+h2{
+	color:white;
+	font size: 24px;
+	margin-left:10px;
+}
+h3 {
+	color:lightgrey;
+	font size: 18px;
+	font-family: Lucida Console;
+	margin-left:10px;
+}
+h4 {
+	color:white;
+	font size: 15px;
+	font-family: Helvetica;
+}
+
+h5 {
+	color:lightgrey;
+	font size: 20px;
+	font-family: Lucida Console;
+	padding-left:15%;
+	text-align: center;
+}
+h6 {
+	color:lightgrey;
+	font size: 20px;
+	font-family: Lucida Console;
+	padding-right:15%;
+	text-align: center;
+	padding-left: 5%;
+	margin-top:15%;
+}
+.resume {
+	color:white;
+	font-size: 10px;
+	font-family: Helvetica;
+	margin-left:10px;
+}
+
+.education {
+	color:white;
+	font-size: 15px;
+	font-family: Helvetica;
+	margin-left:-180px;
+	padding-top: 5%;
+	
+}
+
+
+/*hobbies*/
+.column1 {
+    float: left;
+    width: 33.33%;
+    height:60%;
+}
+
+
+.row1:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.left-half {
+ 
+  position: absolute;
+  left: 15px;
+  width: 50%;
+}
+
+
+
+.right-half {
+
+  position: absolute;
+  right: 0px;
+  width: 40%;}
+/*skill*/
+.skillname{
+	color: black;
+}
+.container {
+    width: 50%; 
+    background-color: #ddd;
+    margin:center;
+    font-family:"Gill Sans", sans-serif;;
+
+}
+.skills {
+    text-align: right; 
+    padding: 1px; 
+    color: white;
+    height:2%;
+}
+
+.html {width: 90%; background-color: green;} 
+.css {width: 80%; background-color: blue;} 
+.js {width: 65%; background-color: yellow;}
+.ms {width: 95%; background-color: pink;} 
+
+#nav{
+	font-family: cursive;
+     width: 1000px;
+     height: 45px;
+     background: #e1d0f2;
+     padding-left: 120px;
+     margin: 0 auto;
+     text-align: center;
+}
+#nav li{
+     line-height: 45px;
+     float: left;
+     list-style: none;
+     height: 45px;
+     position: relative;
+     padding-left: 120px;
+}
+#nav a{
+     padding: 0 10px;
+     color: black;
+     display: block;
+     text-decoration: none;
+     height: 45px;
+}
+#nav a:hover{
+     background: #058;
+     color:white;
+}
+#nav li ul{
+	display: none;
+	position: absolute;
+	top: 45px;
+	left:-40px;
+}
+#nav li ul li{
+	float: none;
+    margin: 2px;
+    width:150px;
+    text-align: center;
+    font-size:12px;
+}
+#nav li ul li a{
+   	background: #ccc;
+}
+#nav li ul li a:hover{
+   	background: purple;
+}
+#nav li:hover ul{
+	display: block;}
+  
+
+.photo1{
+	width: 150px;
+	border-radius: 50%;
+	margin-left: 45%;
+	margin-top:14%;
+	
+}
+
+.photo2{
+	width: 230px;
+	border-radius: 30%;
+	margin-top:5%;
+	margin-left:130px;
+}
+
+.photo3{
+	width: 230px;
+	height:180px;
+	border-radius: 30%;
+	margin-top:5%;
+	margin-left:28%;
+	}
+.photo4{
+	width: 230px;
+	border-radius: 30%;
+	margin-top:5%;
+	margin-left:25%;
+	}
+.header{
+	font-family: cursive;
+	color:white;
+	font-style: bold white;
+	word-spacing: 20px;
+	font-size:40px;
+	text-align:center;
+}
+.note{
+	color:lightgrey;
+	font-size:12px;
+	margin:center;
+	padding-left: 185px;
+	padding-right:185px;
+	text-align: center;
+}
+#footer {
+	margin:center;
+	bottom:0;
+	width:100%;
+	height:50px;
+	text-align: center;
+	font-size:10px;
+	color:white;}
+
+
+.calculator {
+    width: 326px;
+    height: 480px;
+    margin: 60px auto;
+    background-color: #a5e5d9;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px black;
+    overflow: hidden;
+}
+.calculator .c_screen {
+    position: relative;
+    width: 326px;
+    height: 100px;
+    background-color: #96a4c2;
+    border-radius: 15px;
+    box-shadow: inherit;
+}
+.calculator .c_screen>p {
+    position: absolute;
+    top: 50%;
+    margin-top: -28px;
+    width: 250px;
+    text-align: center;
+    word-break: break-all;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 45px;
+}
+.calculator .c_row {
+    margin: 0 25px;
+}
+button {
+    cursor: pointer;
+    width: 62px;
+    height: 48px;
+    margin: 20px 2px 0;
+    border: 0px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #2b2f5b;
+    outline: none;
+}
+button::selection {
+    color: #fff;
+}
+button:active {
+    box-shadow: 0 0 5px 5px dodgerblue;
+}
+.c_func_btn {
+    background: linear-gradient(to bottom, rgba(252,156,23,1) 0%, rgba(247,126,27,1) 100%);
+}
+
+.video{
+	width:320px;
+	height:190px;
+	margin-left: 30%;
+}
+
+.tutor{
+	font-size: 14px;
+	font-family: monospace;
+	color:lightgrey;
+	text-align: left;
+	margin-left: 30%;
+}
+
+
+
+
+
+
+
