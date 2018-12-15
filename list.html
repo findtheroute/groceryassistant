@@ -31,7 +31,20 @@
 <script src="resources/js/js/modernizr.custom.js"> </script>
 <script type="text/javascript" src="resources/js/js/move-top.js"></script>
 <script type="text/javascript" src="resources/js/js/easing.js"></script>
-
+<script type="text/javascript">
+	window.onload = function(){
+		
+		//Cart items stored locally on previous page are displayed here along with aisle numbers returned as productLocationObj
+		var cartItems = JSON.parse(localStorage.getItem("productLocationObj"));
+		for (var cartItem in cartItems){
+			var cartItemCard = " <div class=\"cards\"><p>"+cartItems[cartItem]+"</p> <button type=\"button\" class=\"item\" onClick=removeItem()></button> </div>";
+			$("#groceryList").append(cartItemCard);
+		}
+	}
+	function removeItem(){
+		//Code for remove item from cart
+	}
+</script>
 <!-- Add fancyBox main JS and CSS files -->
 	
 		<!---->
@@ -41,6 +54,7 @@
 
 </head>
 <body>
+	<div id="groceryList"> </div>
 	<div class="container demo-2" id="home">
 	<header>
                 
