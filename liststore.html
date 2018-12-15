@@ -39,7 +39,35 @@
 <script src="resources/js/js/modernizr.custom.js"> </script>
 <script type="text/javascript" src="resources/js/js/move-top.js"></script>
 <script type="text/javascript" src="resources/js/js/easing.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
 
+		// Retrieve the zip entered by user on previous page
+		var zipValue = localStorage.getItem('zipKey');
+
+		if (zipValue != "undefined" || zipValue != "null") {
+			document.getElementById('zipMessage').innerHTML = "These are the stores in and around zip code " + zipValue + "!";
+			var zipJSONValue = JSON.stringify(zipValue);
+			localStorage.setItem("zipJSON": zipJSONValue); //to be caught by Amit in backend PHP to query Store table using zip code and return list of stores
+			
+			//Amit will locally store list of stores as storeOptionsJSON
+			var storeOptionsObj = JSON.parse(localStorage.getItem("storeOptionsJSON"));
+			for (var storeItem in storeOptionsObj){
+				var txt1 = " <div class=\"store\" onClick=showProducts()"><p>"+storeOptionsObj[storeItem]+"</p> </div>";
+				$("#storeDiv").append(txt1);										
+			}
+			
+		} 
+		else
+			document.getElementById('zipMessage').innerHTML = "Invalid zip!";
+		localStorage.clear();
+	}
+	function showProducts(){
+		var storeIDValue = $(this).store_id.value;
+		localStorage.setItem('storeIDJSON', JSON.stringify(storeIDValue)); //To be caught by Amit in backend PHP to query product table and return list of products for selected store
+		
+	}
+</script>
 <!-- Add fancyBox main JS and CSS files -->
 		<script src="resources/js/js/jquery.magnific-popup.js" type="text/javascript"></script>
 		<link href="resources/css/css/magnific-popup.css" rel="stylesheet" type="text/css">
@@ -69,6 +97,8 @@
 
 </head>
 <body>
+	<div id="zipMessage"> </div>
+	<div id="storeDiv" class="store"></div>
 	<div class="container demo-2" id="home">
 	<header>
                 
