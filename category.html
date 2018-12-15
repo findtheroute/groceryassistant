@@ -63,27 +63,36 @@
 
 
 <script>
+	window.onload = function(){
+		
+		//Amit will locally store list of products as productListJSON
+		var productListObj = JSON.parse(localStorage.getItem("productListJSON"));
+		for (var productItem in productListObj){
+			var productCard = " <div class=\"cards\"><p>"+productListObj[productItem]+"</p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
+			$("#scrollbar").append(productCard);
+		}
+	}
 	
 	$(".card").ready(function(){
-	$("#searchText").on("keyup", function() {
-    var g = $(this).val().toLowerCase();
-    $(".cards").children("p").each(function() {
-        var s = $(this).text().toLowerCase();
-		$(this).parent()[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
-	});
-	});
+		$("#searchText").on("keyup", function() {
+    			var g = $(this).val().toLowerCase();
+    			$(".cards").children("p").each(function() {
+        			var s = $(this).text().toLowerCase();
+				$(this).parent()[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+			});
+		});
 	});		
 
 	$("#scrollbar").ready(function(){
-	var JSONitems = JSON.parse('["Eggs","Milk","Juice","Cereal","Coffee","Beverages","Candy","Meat","Bread","Chips"]');
-	var item;
-	for (item in JSONitems){
-	var txt1 = " <div class=\"cards\"><p>"+JSONitems[item]+"</p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
-	$("#scrollbar").append(txt1);
-	}
+		var JSONitems = JSON.parse('["Eggs","Milk","Juice","Cereal","Coffee","Beverages","Candy","Meat","Bread","Chips"]');
+		var item;
+		for (item in JSONitems){
+			var txt1 = " <div class=\"cards\"><p>"+JSONitems[item]+"</p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
+			$("#scrollbar").append(txt1);
+		}
 	});
 	
-		var cart = [];
+	var cart = [];
 	$(".item").ready(function(){
 		$(".item").click(function(){
 			cart.push($(this).siblings('p').text());
@@ -91,10 +100,11 @@
 			console.log($(this).siblings('p').text());
 		});
 	});
-		function showGroceryList(){
+	function showGroceryList(){
 		localStorage.setItem("cartKey",JSON.stringify(cart))
-		var cartItems = JSON.parse(localStorage.getItem("cartKey"));
-		console.log(cartItems);
+		//Commenting lines below as getItem should be performed on next page
+		//var cartItems = JSON.parse(localStorage.getItem("cartKey"));
+		//console.log(cartItems);
 	}
 	
 </script>
