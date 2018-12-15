@@ -32,6 +32,25 @@
 <script type="text/javascript" src="resources/js/js/move-top.js"></script>
 <script type="text/javascript" src="resources/js/js/easing.js"></script>
 
+<script type="text/javascript">
+	window.onload = function() {
+
+  		// Check for LocalStorage support
+  		if (localStorage) {
+
+   			 // Add an event listener for form submission
+    			document.getElementById('searchStoreByZip').addEventListener('submit', function() {
+      			// Get the value of the name field
+     	 		var zipValue = document.getElementById('zip').value;
+
+      			// Save the zip in localStorage
+      			localStorage.setItem('zipKey', zipValue);
+    			});
+
+  		}
+
+	}
+</script>
 
 <script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -102,8 +121,8 @@
         	<div style="margin:10%; padding:3%;">
 
 	<section class="hero" id="hero">
-		<form action="liststore.html" >
-			<h2 class="hero_header" id="searchStoreByZip">
+		<form action="liststore.html" id="searchStoreByZip">
+			<h2 class="hero_header">
 				Enter ZIP: <input type="text" name="zip" placeholder="Zip Code"><br><br>
 				<button class="button" type="submit" value="Submit" onClick="window.location.href='screen2.html'">Go</button>
 			</h2>
