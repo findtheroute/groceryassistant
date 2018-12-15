@@ -53,7 +53,7 @@
 			//Amit will locally store list of stores as storeOptionsJSON
 			var storeOptionsObj = JSON.parse(localStorage.getItem("storeOptionsJSON"));
 			for (var storeItem in storeOptionsObj){
-				var txt1 = " <div class=\"store\" onClick=showProducts()"><p>"+storeOptionsObj[storeItem]+"</p> </div>";
+				var txt1 = " <div class=\"store\" onClick=showProducts()><p>"+storeOptionsObj[storeItem]+"</p> </div>";
 				$("#storeDiv").append(txt1);										
 			}
 			
