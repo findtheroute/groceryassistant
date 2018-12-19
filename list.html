@@ -34,16 +34,32 @@
 <script type="text/javascript">
 	window.onload = function(){
 		
-		//Cart items stored locally on previous page are displayed here along with aisle numbers returned as productLocationObj
+		//Cart items stored locally on previous page are displayed here along with aisle numbers returned as productLocationObj in sorted order of aisle number
 		var cartItems = JSON.parse(localStorage.getItem("productLocationObj"));
 		for (var cartItem in cartItems){
-			var cartItemCard = " <div class=\"cards\"><p>"+cartItems[cartItem]+"</p> <button type=\"button\" class=\"item\" onClick=removeItem()></button> </div>";
+			//each item is created as a new div with id equal to iterator value and appended to groceryList div
+			var cartItemCard = "<div id=\"cartItem\"><p>"+cartItems[cartItem]+"</p><button type=\"button\" class=\"deleteMe\">Remove</button> </div>";
 			$("#groceryList").append(cartItemCard);
 		}
 	}
-	function removeItem(){
-		//Code for remove item from cart
-	}
+	//Function for remove item button in grocery list
+	$(".deleteMe").on("click", function() {
+		if (confirm('Are you sure you want to remove this item from your list?')) {
+			$(this).closest("div").remove();
+		} 
+		else {
+			return false
+    		}
+    		return false;
+  	});
+	//This function will sort the list based on their id 
+	$("#groceryList div").sort(function (elem1, elem2) {
+		return parseInt(elem1.id) > parseInt(elem2.id);
+	}).each(function () {
+		var element = $(this);
+		element.remove();
+		$(element).appendTo("#groceryList");
+	});
 </script>
 <!-- Add fancyBox main JS and CSS files -->
 	
@@ -54,7 +70,7 @@
 
 </head>
 <body>
-	<div id="groceryList"> </div>
+	<div id="groceryList" class="container demo-2"> </div>
 	<div class="container demo-2" id="home">
 	<header>
                 
