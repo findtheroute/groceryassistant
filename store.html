@@ -33,23 +33,22 @@
 <script type="text/javascript" src="resources/js/js/easing.js"></script>
 
 <script type="text/javascript">
-	window.onload = function() {
-
+	function getZip() {
   		// Check for LocalStorage support
-  		if (localStorage) {
-
+		console.log("inside getZip()");
+  		if (localStorage) 
+		{
    			 // Add an event listener for form submission
-    			document.getElementById('searchStoreByZip').addEventListener('submit', function() {
+    			
       			// Get the value of the name field
      	 		var zipValue = document.getElementById('zip').value;
-
       			// Save the zip in localStorage
       			localStorage.setItem('zipKey', zipValue);
-    			});
+				console.log(zipValue);
 
+				location.href= 'liststore.html';
+    	}
   		}
-
-	}
 </script>
 
 <script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
@@ -121,12 +120,12 @@
         	<div style="margin:10%; padding:3%;">
 
 	<section class="hero" id="hero">
-		<form action="liststore.html" id="searchStoreByZip">
+		<form id="searchStoreByZip">
 			<h2 class="hero_header">
-				Enter ZIP: <input type="text" name="zip" placeholder="Zip Code"><br><br>
-				<button class="button" type="submit" value="Submit" onClick="window.location.href='screen2.html'">Go</button>
+				Enter ZIP: <input type="text" id="zip" placeholder="Zip Code"><br><br>	
 			</h2>
     	</form>	
+		<button class="button" type="submit" value="Submit" onclick="getZip()">Go</button>
   </section>
 		</div>
     </main>
@@ -173,15 +172,17 @@ function form1(evt, type) {
     evt.currentTarget.className += " active";
 }
 </script>
+
+<!---
 		<script src="resources/js/js/rAF.js"></script>
         <script src="resources/js/js/demo-2.js"></script>
 		<script src="resources/js/js/main.js"></script> <!-- Resource jQuery -->
 
 <!-- for bootstrap working -->
 <!-- //for bootstrap working -->
- <script src="resources/js/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+ <!--<script src="resources/js/js/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="resources/js/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="resources/js/js/jquery.bootstrap.js" type="text/javascript"></script>
+	<script src="resources/js/js/jquery.bootstrap.js" type="text/javascript"></script> -->
 
 
 

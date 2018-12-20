@@ -1,12 +1,47 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
 <html>
-<head>
-<title>GROCERY ASSISTANT</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self' https://fonts.googleapis.com/css?family=Great+Vibes; style-src 'self' https://maxcdn.bootstrapcdn.com;"> -->
+		<meta http-equiv="Content-Security-Policy" content="style-src 'self' https://fonts.googleapis.com; font-src 'self' httpss://fonts.gstatic.com;">
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+        <title>Grocery Assistant</title>
+		
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="resources/css/css/bootstrap1.css" rel='stylesheet' type='text/css' />
+
 <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,700italic,800,300,300italic,400italic,400,600,600italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic' rel='stylesheet' type='text/css'>
@@ -59,9 +94,13 @@
 	</script>
 <!--//end-animate-->
 
-</head>
-<body>
-	<div class="container demo-2" id="home">
+
+		
+		
+		
+    </head>
+    <body>
+        <div class="container demo-2" id="home">
 	<header>
                 
 
@@ -74,7 +113,7 @@
 
 		<ul class="side_nav">
           
-                    <li><a href="home.html" ><span>Home</span></a></li>
+                    <li><a href="index.html" ><span>Home</span></a></li>
                     <li><a href="about.html"><span>About</span></a></li>
                     <li><a href="store.html" ><span>Find Store</span></a></li>
                     <li><a href="map.html" ><span>List Map</span></a></li>
@@ -92,7 +131,7 @@
 			<div class="content">
                 <div id="large-header" class="large-header">
                     <canvas id="demo-canvas"></canvas>
-                    <h1 class="main-title"><a class="link link--takiri" href="index.html">Find your Product</a></h1>
+                    <h1 class="main-title"><a class="link link--takiri" href="home.html">Grocery Store Assistant</a></h1>
 				
                 </div>
 
@@ -163,6 +202,4 @@ function form1(evt, type) {
 
 
 
-
-</body>
 </html>

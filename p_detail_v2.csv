@@ -1,0 +1,85 @@
+product_id,product_name,category_id
+1011,women's clothing,101
+1012,women's shoes,101
+1013,women's accessories,101
+1014,men's clothing,101
+1015,men's shoes,101
+1016,children's clothings,101
+1017,children's shoes,101
+1018,workout clothing,101
+1019,plus-size clothing,101
+10110,clothing sales,101
+1021,christmas decoration deals,102
+1022,christmas baking & entertaining,102
+1023,christmas trees,102
+1024,christmas lights,102
+1025,indoor christmas decoration,102
+1026,christmas décor ideas,102
+1027,4 pack trend ornaments,102
+1028,christmas ornament kits,102
+1029,christmas stockings & holders,102
+10210,christmas gift,102
+1031,pets deal,103
+1032,dog supplies,103
+1033,cat supplies,103
+1034,small animal supplies,103
+1035,bird supplies,103
+1036,fish supplies,103
+1037,other pets supplies,103
+1041,anniversary,104
+1042,baby shower,104
+1043,birthday,104
+1044,graduation,104
+1045,wedding supplies,104
+1046,cards & invitations,104
+1047,decorations,104
+1048,"gift wrap, bags & accessories",104
+1049,party hats & accessories,104
+10410,party lights & string lights,104
+1051,baby deals,105
+1052,baby gifts,105
+1053,baby toys,105
+1054,car seats,105
+1055,strollers,105
+1056,baby carriers,105
+1057,nursing & feeding,105
+1058,diapering,105
+1059,baby clothing,105
+10510,baby shoes,105
+1061,beauty gift ideas,106
+1062,beauty & personal care deals,106
+1063,makeup,106
+1064,hair care,106
+1065,skin care,106
+1066,bath & body,106
+1067,natural beauty,106
+1068,spa  & massage,106
+1069,nail ,106
+10610,travel size toiletries,106
+1071,toy finder,107
+1072,new toys,107
+1073,character shop,107
+1074,action figure & playsets,107
+1075,building sets & blocks,107
+1076,dolls,107
+1077,dress up & pretend play,107
+1078,games & puzzles,107
+1081,dairy,108
+1082,meat & seafood,108
+1083,frozen foods,108
+1084,bakery & bread,108
+1085,breakfast & cereal,108
+1086,"chips, snacks & cookies",108
+1087,candy,108
+1088,berverages,108
+1089,coffee,108
+10810,"wine, beer & liquor",108
+1091,oral care,109
+1092,bath & body,109
+1093,men's grooming,109
+1094,natural personal care,109
+1095,women's hair removal,109
+1096,eye care,109
+1097,foot care,109
+1098,ear care,109
+1099,hand soap & sanitizers,109

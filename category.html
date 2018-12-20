@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>GROCERY ASSISTANT</title>
+<title>Grocery Assistant</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -35,6 +35,9 @@
 <script type="text/javascript" src="resources/js/js/move-top.js"></script>
 <script type="text/javascript" src="resources/js/js/easing.js"></script>
 
+
+
+
 <!-- Add fancyBox main JS and CSS files -->
 		<script src="resources/js/js/jquery.magnific-popup.js" type="text/javascript"></script>
 		<link href="resources/css/css/magnific-popup.css" rel="stylesheet" type="text/css">
@@ -63,48 +66,72 @@
 
 
 <script>
-	window.onload = function(){
-		
-		//Amit will locally store list of products as productListJSON
-		var productListObj = JSON.parse(localStorage.getItem("productListJSON"));
-		for (var productItem in productListObj){
-			var productCard = " <div class=\"cards\"><p>"+productListObj[productItem]+"</p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
-			$("#scrollbar").append(productCard);
+
+window.onload = function() 
+	{
+	var storeid = localStorage.getItem('store_id');
+	//console.log(storeid);
+	dbParam = JSON.stringify(storeid);
+	//console.log(typeof dbParam);
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) 
+		{
+		var JSONitems = JSON.parse(this.responseText);
+		$("#scrollbar").ready(function(){
+		for(var i=0; i<JSONitems.Product.length; i++)
+			{
+			var ProductObj= JSONitems.Product[i].Product;
+			var txt1 = " <div class=\"cards\"><p>"+ProductObj.product_name +"</p>	<button type=\"button\" id=\""+ProductObj.product_id+"\" class=\"item\" onClick='addToList("+ProductObj.product_id+")'>Add to List</button> </div>";
+			$("#scrollbar").append(txt1);
+			} 
+	});
 		}
+	}
+	xmlhttp.open("GET", "getProducts.php?store_id=" + dbParam, true);
+	xmlhttp.send();
 	}
 	
 	$(".card").ready(function(){
-		$("#searchText").on("keyup", function() {
-    			var g = $(this).val().toLowerCase();
-    			$(".cards").children("p").each(function() {
-        			var s = $(this).text().toLowerCase();
-				$(this).parent()[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
-			});
-		});
+	$("#searchText").on("keyup", function() {
+    var g = $(this).val().toLowerCase();
+    $(".cards").children("p").each(function() {
+        var s = $(this).text().toLowerCase();
+		$(this).parent()[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+	});
+	});
 	});		
 
-	$("#scrollbar").ready(function(){
-		var JSONitems = JSON.parse('["Eggs","Milk","Juice","Cereal","Coffee","Beverages","Candy","Meat","Bread","Chips"]');
-		var item;
-		for (item in JSONitems){
-			var txt1 = " <div class=\"cards\"><p>"+JSONitems[item]+"</p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
-			$("#scrollbar").append(txt1);
-		}
-	});
+	/*$("#scrollbar").ready(function(){
+	var JSONitems = JSON.parse('["Eggs","Milk","Juice","Cereal","Coffee","Beverages","Candy","Meat","Bread","Chips"]');
+	var item;
+	for (item in JSONitems){
+	var txt1 = " <div class=\"cards\"><p>"+JSONitems[item]+"</p>	<button type=\"button\" class=\"item\">Add to List</button> </div>";
+	$("#scrollbar").append(txt1);
+	}
+	});*/
 	
-	var cart = [];
-	$(".item").ready(function(){
+		var cart = [];
+		
+		function addToList(product_id)
+		{
+		cart.push(product_id);
+		document.getElementById(product_id).disabled = true;
+		}
+		
+	/*$(".item").ready(function(){
 		$(".item").click(function(){
-			cart.push($(this).siblings('p').text());
+		console.log("added");
+			//cart.push($(this).siblings('p').text());
+			//console.log("adding"+$(this).attr('id'));
 			$(this).prop("disabled",true);
 			console.log($(this).siblings('p').text());
 		});
-	});
-	function showGroceryList(){
-		localStorage.setItem("cartKey",JSON.stringify(cart))
-		//Commenting lines below as getItem should be performed on next page
-		//var cartItems = JSON.parse(localStorage.getItem("cartKey"));
-		//console.log(cartItems);
+	});*/
+		function showGroceryList(){
+		localStorage.setItem("ProductIDArray",JSON.stringify(cart))
+		var cartItems = JSON.parse(localStorage.getItem("ProductIDArray"));
+		location.href='list.html';
 	}
 	
 </script>
@@ -126,7 +153,7 @@
 
 		<ul class="side_nav">
           
-                    <li><a href="home.html" ><span>Home</span></a></li>
+                    <li><a href="index.html" ><span>Home</span></a></li>
                     <li><a href="about.html"><span>About</span></a></li>
                     <li><a href="store.html" ><span>Find Store</span></a></li>
                     <li><a href="map.html" ><span>List Map</span></a></li>
@@ -143,7 +170,7 @@
 			
 	
 
-        <main role="main">
+        <main role="main" id="category-list">
         	<section class="store">	
 	  
 	  <h2> Select items for your grocery list</h2>
@@ -167,16 +194,19 @@
 		<!--
 <button class="button" type="submit" value="Submit" onClick="window.location.href='screen4.html'">View Grocery List</button><br>
 -->
-	<button class="button" type="submit" value="Submit" onClick="window.location.href='list.html'">View Grocery List</button><br>	  
+	<button class="button" type="submit" value="Submit" onClick='showGroceryList()'>View Grocery List</button><br>	  
 	  </p>
 	  
   </section>
 		
     </main>
+	   	<footer id="footer">
 	   <!--copy-right-->
 		<div class="copy">
-		   <p class="wow fadeInUp animated animated" data-wow-delay=".5s">Copyright &copy; 2018 | Designed by Amit R. Bathija; Nan Xia; Prajna Boppana; Zijiang Zhao; Supriya Jha </p>
+		    <p class="wow fadeInUp animated animated" data-wow-delay=".5s">Copyright &copy; 2018 | Designed by Amit R. Bathija; Nan Xia; Prajna Boppana; Zijiang Zhao; Supriya Jha   </p>
 		</div>
+		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		</footer>
 	 <!--//copy-right-->
 		<!--//footer-->
 			<!--start-smooth-scrolling-->
@@ -195,7 +225,6 @@
 										
 									});
 								</script>
-		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 
 
@@ -222,10 +251,10 @@ function form1(evt, type) {
 
 <!-- for bootstrap working -->
 <!-- //for bootstrap working -->
- <script src="resources/js/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+<!--  <script src="resources/js/js/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="resources/js/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="resources/js/js/jquery.bootstrap.js" type="text/javascript"></script>
-
+-->
 
 
 

@@ -40,15 +40,40 @@
 <script type="text/javascript" src="resources/js/js/move-top.js"></script>
 <script type="text/javascript" src="resources/js/js/easing.js"></script>
 <script type="text/javascript">
-	window.onload = function() {
-
+	window.onload = function() 
+	{
+	var zipValue = localStorage.getItem('zipKey');
+	console.log(zipValue);
+	if (zipValue != "undefined" || zipValue != "null") {
+			//document.getElementById('zipMessage').innerHTML = "These are the stores in and around zip code " + zipValue + "!";
+			}
+	dbParam = JSON.stringify(zipValue);
+	//console.log(typeof dbParam);
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) 
+		{
+		var storeOptionsObj = JSON.parse(this.responseText);
+		$("#storelocation").ready(function(){
+		for(var i=0;i<storeOptionsObj.store.length;i++)
+			{
+		var storeObj=storeOptionsObj.store[i].store;
+		var txt1 = "<div class =\"store\" onClick=\"getStoreItems("+ storeObj.store_id +")\"><h2 > "+storeObj.store_name+"</h2>	 <p>"+storeObj.address+","+storeObj.city+","+ storeObj.state+","+ storeObj.zipcode+"</p></div>";
+		$("#storelocation").append(txt1);
+		}
+		});
+		
+		}
+	}
+	xmlhttp.open("GET", "getStores.php?zipValue=" + dbParam, true);
+	xmlhttp.send();
+	/*
 		// Retrieve the zip entered by user on previous page
 		var zipValue = localStorage.getItem('zipKey');
-
 		if (zipValue != "undefined" || zipValue != "null") {
 			document.getElementById('zipMessage').innerHTML = "These are the stores in and around zip code " + zipValue + "!";
-			var zipJSONValue = JSON.stringify(zipValue);
-			localStorage.setItem("zipJSON": zipJSONValue); //to be caught by Amit in backend PHP to query Store table using zip code and return list of stores
+			//var zipJSONValue = JSON.stringify(zipValue);
+			//localStorage.setItem("zipJSON": zipJSONValue); //to be caught by Amit in backend PHP to query Store table using zip code and return list of stores
 			
 			//Amit will locally store list of stores as storeOptionsJSON
 			var storeOptionsObj = JSON.parse(localStorage.getItem("storeOptionsJSON"));
@@ -61,10 +86,16 @@
 		else
 			document.getElementById('zipMessage').innerHTML = "Invalid zip!";
 		localStorage.clear();
+		*/
+	}
+	function getStoreItems(store_id){
+	 console.log(store_id);
+	 localStorage.setItem('store_id', store_id);
+	 location.href = 'category.html';
 	}
 	function showProducts(){
 		var storeIDValue = $(this).store_id.value;
-		localStorage.setItem('storeIDJSON', JSON.stringify(storeIDValue)); //To be caught by Amit in backend PHP to query product table and return list of products for selected store
+		localStorage.setItem('storeIDJSON', JSON.stringify(storeIDValue)); 
 		
 	}
 </script>
@@ -97,8 +128,6 @@
 
 </head>
 <body>
-	<div id="zipMessage"> </div>
-	<div id="storeDiv" class="store"></div>
 	<div class="container demo-2" id="home">
 	<header>
                 
@@ -130,7 +159,10 @@
 	
 
         <main role="main">
-  <section style="margin-top:10%; margin-bottom: 10%;">	
+  <section id="storelocation">	
+  
+  
+  <!--
 	  <div class="store" onClick="window.location.href='category.html'">
 			<h2> Target </h2>	 
 		  	<p>255 Greenwich St, New York, NY 10007</p>
@@ -145,7 +177,7 @@
 			<h2> Duane Reade </h2>	 
 		  	<p>4 Union Square W, New York, NY 10003</p>
 	  </div>
-	  
+	  -->
 		
     </main>
 	   <!--copy-right-->
@@ -208,6 +240,3 @@ function form1(evt, type) {
 
 </body>
 </html>
-
-
-
